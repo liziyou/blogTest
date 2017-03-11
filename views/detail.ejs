@@ -1,0 +1,16 @@
+<%- include header %>
+<p>
+    <span><a class="edit" href="/edit/<%= post.author %>/<%= post.title %>?id=<%=post._id%>">编辑</a></span>
+    <span><a class="edit" href="/delete?id=<%= post._id%>">删除</a></span>
+</p>
+<p><h2><a href="#"><%= post.title %></a></h2></p>
+<p class="info">
+    作者：<a href="#"><%= post.author %></a> |
+    日期：<%= post.publishTime %> |
+    浏览：<%= post.pv%>
+</p>
+<p><%- post.article %></p>
+<%if(post.postImg) { %>
+<img src="/images/<%= post.postImg%>" alt="" style="width:100%;height:100%;">
+<% } %>
+<%- include footer %>

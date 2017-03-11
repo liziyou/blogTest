@@ -1,0 +1,14 @@
+</div>
+</div>
+</body>
+<script>
+    var imgs =["01.jpg", "02.jpg", "02.jpg","03.jpg","04.jpg","05.jpg","06.jpg"];       //（设定想要显示的图片）
+    var x = 0;
+    function time1(){
+        x++;
+        x=x%7;
+//        document.getElementById("backimg").backgroundImage  ="../backgroud/"+imgs[x];
+        $("#backimg").attr("style","background-image:url('../backgroud/"+imgs[x]') no-repeat;width:100%;height:100%;");
+    }setInterval("time1()",3000);
+</script>
+</html>

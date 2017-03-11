@@ -1,0 +1,16 @@
+<%- include header %>
+<p><%= time %></p>
+<ul class="list-group">
+    <% posts.forEach(function(post){%>
+    <li class="list-group-item">
+        <h3><a href="/detail?id=<%= post._id%>"><%= post.title %></a></h3>
+        <p class="info">
+            <span>作者：<%= post.author %></span>
+            <span>|</span>
+            <span>日期：<%= post.publishTime %></span>
+        </p>
+    </li>
+    <hr>
+    <%})%>
+</ul>
+<%- include footer %>

@@ -1,0 +1,23 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+
+}
+
+ body{
+   /*background-image: url("../backgroud/05.jpg");*/
+   /*background-position:center;*/
+   /*background-repeat:repeat-y*/
+   /*background-color: #00B7FF;*/
+  color: #0099FF;
+ }
+.userArea{
+  margin-left: 90%;
+}
+/*#backimg{*/
+  /*background-image: url("../backgroud/05.jpg");*/
+/*}*/

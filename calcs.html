@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> 简易计算器</title>
+</head>
+<style>
+   table tr td {
+        text-align: center;
+    }
+    table thead tr td input{
+        height: 35px;
+    }
+    input{
+        width: 46px;
+        height: 25px;
+    }
+</style>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <td colspan="4">
+            <input type="text" value="" style="width: 200px" id="view"/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4" style="text-align: left">
+            <label id="viewNum" style="line-height: 22px;">提示：</label>
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><input value="c" type="button" onclick="operate(this)"/></td>
+        <td><input type="button" value="d" onclick="operate(this)"/></td>
+        <td><input type="button" value="_" onclick="operate(this)"/></td>
+        <td><input type="button" value="/" onclick="getSign(this)"/></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="7" onclick="getNum(this)"/></td>
+        <td><input type="button" value="8" onclick="getNum(this)"/></td>
+        <td><input type="button" value="9" onclick="getNum(this)"/></td>
+        <td><input type="button" value="*" onclick="getSign(this)" /></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="4" onclick="getNum(this)"/></td>
+        <td><input type="button" value="5" onclick="getNum(this)"/></td>
+        <td><input type="button" value="6" onclick="getNum(this)"/></td>
+        <td><input type="button" value="-" onclick="getSign(this)"/></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="1" onclick="getNum(this)"/></td>
+        <td><input type="button" value="2" onclick="getNum(this)"/></td>
+        <td><input type="button" value="3" onclick="getNum(this)"/></td>
+        <td><input type="button" value="+" onclick="getSign(this)"/></td>
+    </tr>
+    <tr>
+        <td colspan="2" ><input  onclick="getNum(this)" type="button" value="0" style="width: 90px;"/></td>
+        <td><input type="button" value="." onclick="getNum(this)"/></td>
+        <td><input type="button" value="=" onclick="getCal(this)"/></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+<script>
+//定义一个计算器
+    function Calculator(){
+        this.count = function(num1,num2,oper){
+            var res = 0;
+            switch (oper){
+                case "+":res = num1+num2; break;
+                case "-":res = num1-num2; break;
+                case "*":res = num1*num2;break;
+                case "/":res = num1/num2;break;
+            }
+            return res;
+        }
+    }
+//定义一个对象
+    var calculator = new Calculator();
+    //定义全局变量
+    var val = 0;//定义输入的值
+    var varChange = 0;//保存转换为Number的值
+    var temp = 0;//保存第一个输入的值
+    var sign = '';//保存运算符
+//获得值
+    function getNum(num){
+        val = num.value;
+        var valChang = document.getElementById('view');
+        valChang.value+= val;
+        varChange = parseFloat(valChang.value);
+        console.log("得到的值："+varChange);
+//        alert(val);
+    }
+
+    //获得操作符
+    function getSign(sign){
+        oper = sign.value;
+//        alert("获得操作符："+oper);
+        console.log("获得操作符："+oper);
+        if(sign.value=='+'||sign.value=='-'||sign.value=="*"||sign.value=='/'){
+            var Sum1 = document.getElementById("view");
+            temp = parseFloat(Sum1.value); //保存第一个数
+            //清除输入框
+            Sum1.value = '';
+        }
+    }
+    //计算结果
+    function getCal(e){
+        console.log('获得第一个数：'+temp);
+        console.log("计算结果：");
+        var count = document.getElementById("view");
+        console.log('获得第二个数：'+varChange);
+        if(e.value=='='){
+            count.value = calculator.count(temp,varChange,oper)
+        }
+    }
+//操作
+    function operate(e){
+        var oper = e.value;
+        var sum1 = document.getElementById('view');
+        console.log('获得操作数:'+oper);
+        //获得清除
+        if(oper=='c'){
+            sum1.value = '';
+        }
+        //获得退格删除
+        if(oper=='d') {
+            var a = sum1.value;
+            var delSum1 = a.substring(0, a.length-1);
+            sum1.value=delSum1;
+            console.log('删除最后一个元素后：'+delSum1);
+        }
+    }
+    </script>
+</html>

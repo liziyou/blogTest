@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %> - liziyou</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/Font-Awesome-3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/jquery-2.0.3.min.js"></script>
+</head>
+<body >
+<div id="backimg">
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">lizyou</a>
+            </div>
+            <a class="navbar-brand" href="/">首页</a>
+            <ul class="nav navbar-nav navbar-right">
+                <% if(user){ %>
+                <li><a title="发表文章" href="/post"><span class="icon-pencil"></span>发表文章</a></li>
+                <li><a href="/logout"><span class="icon-signout"></span>注销</a></li>
+                <%}else{%>
+                <li><a href="/reg"><span class="icon-user"></span> 注册</a></li>
+                <li><a href="/login"><span class="icon-signin"></span> 登录</a></li>
+                <%}%>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div>
+        <% if(success) { %>
+        <%= success%>
+        <% } else { %>
+        <%= error %>
+        <% } %>
+        <h3><%= title %></h3>
+        <div class="userArea">
+
+            <% if(user) {%>
+            <span>用户：<%= user.username %></span>
+            <% } else { %>
+            <span>用户：游客</span>
+            <% } %>
+        </div>
+        <div style=" width: 80%;">
+        <form method="get" enctype="multipart/form-data">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="SEARCH" name="keyword">
+        <span class="input-group-btn">
+           <a href=""> <input type="submit" value="搜索" class="btn btn-default" /></a>
+        </span>
+            </div>
+        </form>
+        </div>
+    </div>
+    <hr />
+<div class="col-sm-12">

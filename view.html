@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="public/stylesheets/bootstrap.min.css"/>
+    <script src="public/javascripts/bootstrap.min.js"></script>
+    <script src="public/javascripts/jquery-2.0.3.min.js"></script>
+    <title></title>
+</head>
+<body>
+<div>
+    <button class="btn btn-default" onclick="test(this)" value="测试" id="test">测试1</button>
+    <input type="text" value="文本框" onclick="getTexts(this)" id="text" onchange="changeText(this)" />
+    <button class="btn btn-danger">测试2</button>
+    <button class="btn btn-info">测试3</button>
+    <button class="btn btn-primary">测试4</button>
+    <button class="btn btn-success">测试5</button>
+    <button class="btn  btn-link">测试6</button>
+
+    <span class="glyphicon glyphicon-sort-by-order"></span>
+    <button type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+    </button>
+    <button>
+        <span class="glyphicon-user"></span>User
+    </button>
+    <div style="">
+        <a>购划算</a><em>|</em>
+        <a>春装</a>
+        <a>女装</a>
+        <a>九块九</a>
+        <a>鞋包</a>
+    </div>
+</div>
+</body>
+<script>
+    function test(a){
+        console.log('hahhaha');
+//        alert('hahhaha');
+        var getID = document.getElementById("test");
+        console.log('获得id为test的vaue值:'+getID.value);
+
+    }
+    function getTexts(){
+        var getId = document.getElementById("text");
+        console.log('获得文本框的值：'+getId.value);
+    }
+    function changeText(){
+        var getId = document.getElementById('text');
+        console.log('onchange获得的文本值：'+getId.value);
+    }
+</script>
+</html>
